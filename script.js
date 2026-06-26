@@ -5,7 +5,9 @@ const preview=document.getElementById("preview");
 async function update(){
 
     // 入力を自動でディスプレイ数式として扱う
-    preview.innerHTML="$$\n"+input.value+"\n$$";
+    preview.innerHTML=`\\[
+${input.value}
+\\]`;
 
     if(!window.MathJax)return;
 
@@ -13,4 +15,8 @@ async function update(){
     await MathJax.typesetPromise([preview]);
 }
 
+// 入力時に更新
 input.addEventListener("input",update);
+
+// 初回表示
+window.addEventListener("load",update);
