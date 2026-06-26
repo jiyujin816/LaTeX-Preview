@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>LaTeX Live Preview</title>
 
-    <!-- MathJaxの設定 -->
+    <link rel="stylesheet" href="style.css">
+
     <script>
         window.MathJax={
             tex:{
@@ -13,20 +14,31 @@
             },
             svg:{
                 fontCache:'global'
+            },
+            startup:{
+                ready:()=>{
+                    MathJax.startup.defaultReady();
+
+                    // MathJaxの読み込み完了後に初回更新
+                    update();
+                }
             }
         };
     </script>
 
-    <!-- MathJax本体 -->
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>LaTeX Live Preview</h1>
 
-<textarea id="input" placeholder="LaTeXを入力"></textarea>
+<textarea id="input" placeholder="LaTeXを入力">
+$$
+\int_0^1x^2\,dx=\frac13
+$$
+</textarea>
+
+<hr>
 
 <div id="preview"></div>
 
