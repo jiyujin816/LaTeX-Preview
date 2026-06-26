@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>LaTeX Live Preview</title>
+
+    <!-- MathJaxの設定 -->
+    <script>
+        window.MathJax={
+            tex:{
+                inlineMath:[['$','$'],['\\(','\\)']],
+                displayMath:[['$$','$$'],['\\[','\\]']]
+            },
+            svg:{
+                fontCache:'global'
+            }
+        };
+    </script>
+
+    <!-- MathJax本体 -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>LaTeX Live Preview</h1>
+
+<textarea id="input" placeholder="LaTeXを入力"></textarea>
+
+<div id="preview"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
